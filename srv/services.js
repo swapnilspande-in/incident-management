@@ -8,6 +8,7 @@ class ProcessorService extends cds.ApplicationService {
     this.before("CREATE", "Incidents", (req) => this.changeUrgencyDueToSubject(req.data));
 
     this.after("READ", "Incidents", (data) => this.changeUrgencyDueToSubject(data));
+    // commented due to duplicate error
     // this.on('READ', 'Customers', (req) => this.onCustomerRead(req));
     // this.on(['CREATE', 'UPDATE'], 'Incidents', (req, next) => this.onCustomerCache(req, next));
     this.S4bupa = await cds.connect.to('API_BUSINESS_PARTNER');
